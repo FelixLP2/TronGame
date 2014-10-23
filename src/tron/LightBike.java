@@ -10,6 +10,8 @@ public class LightBike {
 	private int LBnumeroJoueur;
 	private boolean Joueur; // true c'est un joueur, false c'est un CPU
 	private boolean estVivant;
+	private boolean aAvance;	// Evite à la moto de faire un demi tour sur elle même, 
+								// dans le cas où le joueur appuierait sur deux flêches en même temps
 	
 	protected LightBike(int x, int y, boolean joueur, String direction, int num){
 		this.LBPositionX=x;
@@ -18,6 +20,7 @@ public class LightBike {
 		this.LBDirection=direction;
 		this.estVivant=true;
 		this.LBnumeroJoueur=num;
+		this.aAvance = false;
 	};
 	
 	/*
@@ -32,6 +35,7 @@ public class LightBike {
 		case "Right": LBPositionX++; break;
 		default: ;break;
 		}
+		aAvance = true;
 	}
 	
 	/*
@@ -243,6 +247,14 @@ public class LightBike {
 
 	protected void setEstVivant(boolean estVivant) {
 		this.estVivant = estVivant;
+	}
+
+	public boolean isaAvance() {
+		return aAvance;
+	}
+
+	public void setaAvance(boolean aAvance) {
+		this.aAvance = aAvance;
 	}
 	
 	
